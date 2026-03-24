@@ -62,15 +62,9 @@ class ChatRequest(BaseModel):
 
 # ---------- Serve frontend ----------
 if os.path.exists("static"):
-    app.mount("/static", StaticFiles(directory="static"), name="static")
-
-@app.get("/")
-def root():
-    if os.path.exists("static/index.html"):
-        return FileResponse("static/index.html")
-    return {"message": "AI Platform Running"}
-
-
+    app.mount("/", StaticFiles(directory="static", html=True), name="static")
+    
+ 
 # ---------- Track Behavior ----------
 @app.post("/track-behavior")
 def track_behavior(data: BehaviorModel):
