@@ -7,6 +7,7 @@ from ml_utils import predict_intent_with_confidence
 INTENT_CONFIDENCE_THRESHOLD = 0.55
 CITIES = ["goa", "mumbai", "delhi", "chennai", "bangalore"]
 
+ 
 
 # ── extractors ────────────────────────────────
 

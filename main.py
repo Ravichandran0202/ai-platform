@@ -16,10 +16,13 @@ from chat import handle_chat
 
 app = FastAPI(title="Universal AI Platform")
 
-origins = [
-    "http://localhost:4200",
-    "http://127.0.0.1:4200"
-]
+@app.get("/")
+def home():
+    return {
+        "status": "OK",
+        "message": "AI Platform running 🚀"
+    } 
+origins = ["*"]  # for now
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
