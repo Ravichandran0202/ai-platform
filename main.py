@@ -73,8 +73,7 @@ class ChatRequest(BaseModel):
 
 # ---------- Serve frontend ----------
 if os.path.exists("static"):
-    app.mount("/app", StaticFiles(directory="static", html=True), name="static")
-
+    app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 
 @app.get("/hotels/{city}")
