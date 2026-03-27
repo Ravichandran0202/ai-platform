@@ -15,13 +15,7 @@ import os
 from chat import handle_chat
 
 app = FastAPI(title="Universal AI Platform")
-
-@app.get("/")
-def home():
-    return {
-        "status": "OK",
-        "message": "AI Platform running 🚀"
-    } 
+ 
 origins = ["*"]  # for now
 app.add_middleware(
     CORSMiddleware,
@@ -72,9 +66,7 @@ class ChatRequest(BaseModel):
 
 
 # ---------- Serve frontend ----------
-if os.path.exists("static"):
-    app.mount("/", StaticFiles(directory="static", html=True), name="static")
-
+ 
 
 @app.get("/hotels/{city}")
 def get_hotels(city: str):
@@ -587,3 +579,5 @@ def revenue_optimized_price(domain: str, itemId: int, userId: int):
         }
     finally:
         db.close()
+if os.path.exists("static"):
+    app.mount("/", StaticFiles(directory="static", html=True), name="static")
