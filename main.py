@@ -143,7 +143,7 @@ def smart_search(data: SmartSearchRequest):
         budget = None
         match = re.search(r'\d+', query)
         if match:
-            budget = int(match.group(1))
+            budget = int(match.group())
 
         # 🔥 FIX INTENT LOGIC (IMPORTANT)
         if any(word in query for word in ["hotel", "stay"]):
